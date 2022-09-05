@@ -1,0 +1,25 @@
+<div id="<%= dom_id user %>">
+    <p>
+        <strong>Name:</strong>
+        <%= user.name %>
+    </p>
+
+    <p>
+        <strong>Email:</strong>
+        <%= user.email %>
+    </p>
+
+    <p>
+        <strong>Age:</strong>
+        <%= user.age %>
+    </p>
+    <p>
+        <%= link_to "Show this user", user %>
+    </p>
+    <p>
+        <%= button_to "Edit this user", edit_user_path(user), method: :post %>
+  </p>
+  <p>
+  <%= button_to "Destroy this user", user, method: :delete %>
+  </p>
+</div>

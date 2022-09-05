@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+<%= Time.now %>
+<h1>Users
+<span id="message_count">
+<%= User.count %>
+</span>
+</h1>
+<div id="new_user">
+    <%= render partial: "users/form", locals: {user: User.new}  %>
+</div>
+
+<% @users.each do |user| %>
+    <div id="users">
+        <%= render user %>
+    <% end %>
+</div>
+
+
