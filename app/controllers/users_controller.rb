@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
+  include UsersHelper
 
   # GET /users or /users.json
   def index
@@ -81,11 +82,29 @@ class UsersController < ApplicationController
       format.turbo_stream{
         render turbo_stream: [
           turbo_stream.remove(@user),
-          turbo_stream.update("message_count",html: "#{User.count}")
+          turbo_stream.update("message_count", html: "#{User.count}")
         ]
       }
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  # POST /user/search
+  def search
+    respond_to do |format|
+      if params[:name_search].present?
+        @search_result = search_query(params[:name_search])
+      else
+        @search_result = []
+      end
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update("search_res", partial: "users/search_results",
+              locals: {searches: @search_result}),
+              turbo_stream.update("search_output", html: "Total #{@search_result.count}")
+          ]
+        end
     end
   end
 

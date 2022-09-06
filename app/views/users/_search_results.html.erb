@@ -1,0 +1,5 @@
+<% searches.each do |search_name| %>
+    <%# <p>= search_name.name</p> %>
+    <br/>
+    <%= highlight(search_name.name, params[:name_search]) %>
+<% end %>
