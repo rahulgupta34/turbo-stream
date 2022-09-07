@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <h1>Stimulus Practice
+    </h1>
+    
+    <div data-controller="toggle" data-toggle-id-value="12" data-toggle-url-value="<%= root_path %>">
+        <button data-toggle-target="showBtn" data-action="click->toggle#show">Show</button>
+        <button data-toggle-target="hideBtn" data-action="click->toggle#hide">Hide</button>
+        <br/><br/>
+        <button data-action="click->toggle#toggleBtn">Toggle Pagraph</button>
+        <p data-toggle-target="para">this is rahul gupta</p>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <a href="#" data-toggle-target="links" data-action="click->toggle#activeLink" class="btn ">Home</a>
+            </div>
+            <div class="col-lg-3">
+                <a href="#" data-toggle-target="links" data-action="click->toggle#activeLink" class="btn ">About</a>
+            </div>
+            <div class="col-lg-3">
+                <a href="#" data-toggle-target="links" data-action="click->toggle#activeLink" class="btn ">Contact</a>
+            </div>
+        </div>
+
+        <div>
+            <p class="mt-5">Copy text content</p>
+            <input type="text" data-toggle-target="txt"/>
+            <button data-action="click->toggle#copy">Copy</button>
+        </div>
+
+    </div>
+
+
+</div>
