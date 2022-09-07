@@ -55,6 +55,7 @@ class PostsController < ApplicationController
           format.turbo_stream do
             render turbo_stream:[ 
               turbo_stream.replace(@post, partial: "posts/post", locals: { post: @post }),
+              turbo_stream.update("flash", partial: "layouts/flash"),
               turbo_stream.update("modal", " ")
             ]
           end
@@ -74,7 +75,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       flash.now[:notice] = "Post has been Deleted."
       format.turbo_stream do
-        render turbo_stream: turbo_stream.remove(@post)
+        render turbo_stream: [
+          turbo_stream.remove(@post),
+          turbo_stream.update("flash", partial: "layouts/flash"),
+        ]
       end
       format.html { redirect_to posts_url, status: :see_other ,notice: "Post was successfully destroyed." }
       format.json { head :no_content }
