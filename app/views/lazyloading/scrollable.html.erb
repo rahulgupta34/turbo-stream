@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "loading-#{params[:page]}" do %>
+   
+    <% @lazy_loads.each do |load| %>
+        <%= render partial: "lazyloading/loading", locals: { loading: load } %>
+    <% end %>
+    <%= render "lazyloading/content_load" %>
+
+<% end %>

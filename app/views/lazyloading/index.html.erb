@@ -1,0 +1,12 @@
+<div class="container text-center mt-5">
+    <p>Total
+        <%= @lazy_loads.count %>/<%= LazyLoading.count %></p>
+    <% @lazy_loads.each do |load| %>
+        <div class="row">
+            <div class="col-lg-3">
+                 <%= render partial: "lazyloading/loading", locals: { loading: load } %>
+            </div>
+        </div>
+    <% end %>
+    <%= render "lazyloading/content_load" %>
+</div>

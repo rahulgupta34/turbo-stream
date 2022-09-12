@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "faker"
+
+150.times do
+    LazyLoading.create(
+        name: Faker::Name.unique.name,
+        avatar_url: Faker::Avatar.unique.image
+    ) 
+end
