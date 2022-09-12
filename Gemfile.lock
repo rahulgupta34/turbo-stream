@@ -90,6 +90,8 @@ GEM
       reline (>= 0.3.1)
     digest (3.1.0)
     erubi (1.11.0)
+    faker (2.23.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -131,6 +133,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
+    pagy (5.10.1)
+      activesupport
     pg (1.4.3)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -222,8 +226,10 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  faker (~> 2.23)
   importmap-rails
   jbuilder
+  pagy (~> 5.10)
   pg (~> 1.1)
   pry
   puma (~> 5.0)
