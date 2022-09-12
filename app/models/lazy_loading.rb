@@ -1,0 +1,2 @@
+class LazyLoading < ApplicationRecord
+end
