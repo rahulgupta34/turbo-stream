@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Comments</h1>
+<%= link_to "New comment", new_comment_path %>
+<div id="comments">
+    <% @comments.each do |comment| %>
+        <%= render comment %>
+        <hr/>
+    <% end %>
+</div>
+
+<div id="load_more">
+    <%= button_to "Load More...", pagy_url_for(@pagy,@pagy.next) %>
+</div>
