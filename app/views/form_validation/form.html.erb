@@ -1,4 +1,14 @@
 <div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-1 mb-4">
+            <%= link_to "Home", root_path %>
+        </div>
+
+        <div class="col-lg-4">
+            <%= link_to "Dynamic Form", dynamic_form_path %>
+        </div>
+
+    </div>
     <h1>FormValidation Form</h1>
     <div id="error_msg" style="color: red;"></div>
     <%= form_with url: form_preview_path, data: { controller: "auto-complete", action: "input->auto-complete#submit" } do |form| %>
