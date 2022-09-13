@@ -1,0 +1,55 @@
+<div class="container mt-4">
+    <h1>Dynamic form field show
+    </h1>
+    <%= form_with url: "/"  do |form| %>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <%= form.label :name %>
+                    <%= form.text_field :name, autocomplete: "off", class: "form-control" %>
+                </div>
+            </div>
+        </div>
+        <div data-controller="forms--dynamicform" data-forms--dynamicform-show-value="3" data-forms--dynamicform-color-class="color_green color_red">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <%= form.label :body %>
+                        <%= form.text_area :body, autocomplete: "off", class: "form-control", data: { action: "input->forms--dynamicform#writeSomething" } %>
+                        <span data-forms--dynamicform-target="total_typed"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <div>
+                        <%= form.label :hobby %>
+                        <%= form.select :hobby, Form.hobbies,{include_blank: "Select"},class: "form-select form-select-sm", data: { action: "change->forms--dynamicform#selectHobby" } %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <div data-forms--dynamicform-target="other">
+                        <%= form.label :others %>
+                        <%= form.text_field :others, autocomplete: "off", class: "form-control"  %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <%= form.submit "Submit", class: "btn btn-primary" %>
+                </div>
+            </div>
+        </div>
+
+    <% end %>
+
+</div>
