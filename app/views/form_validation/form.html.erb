@@ -1,0 +1,42 @@
+<div class="container mt-4">
+    <h1>FormValidation Form</h1>
+    <div id="error_msg" style="color: red;"></div>
+    <%= form_with url: form_preview_path, data: { controller: "auto-complete", action: "input->auto-complete#submit" } do |form| %>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <%= form.label :name %>
+                    <%= form.text_field :name, autocomplete: "off", class: "form-control" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <%= form.label :body %>
+                    <%= form.text_area :body, autocomplete: "off", class: "form-control" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-1">
+                <div class="form-group">
+                    <%= form.submit "Preview", class: "btn btn-primary", data: { auto_complete_target: "submitBtn" } %>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <%= form.submit "Submit", class: "btn btn-primary" %>
+                </div>
+            </div>
+        </div>
+
+    <% end %>
+    <br/>
+    <p>Preview Ouput</p>
+    <div id="preview_output"></div>
+
+</div>

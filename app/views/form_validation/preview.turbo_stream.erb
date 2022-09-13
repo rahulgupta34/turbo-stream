@@ -1,0 +1,13 @@
+<%= turbo_stream.update "error_msg" do %>
+    <p><% unless @form.valid? %>
+        <% @form.errors.each do |error| %>
+            <%= error.full_message %>
+            <br/>
+        <% end %>
+    <% end %>
+</p><% end %>
+
+<%= turbo_stream.update "preview_output" do %>
+    <p>Name : <%= @form.name %></p>
+    <pre> Body: <%= @form.body %> </pre>
+<% end %>
