@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <h1>Dynamic Drop Down Select Using Stimulus
+    </h1>
+    <div class="container mt-4" data-controller="dropdown--selectdropdown" data-dropdown--selectdropdown-url-value="/state" >
+        <%= form_with url: "/" do |form| %>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <%= form.label :country %>
+                        <%= form.select :country, CS.countries.invert, {include_blank: "Select"}, class: "form-select", data: { action: "change->dropdown--selectdropdown#country", dropdown__selectdropdown_target: "country" } %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-lg-4">
+                    <div class="form-group" data-cityurl="/city" data-dropdown--selectdropdown-target="city">
+                        <%= form.label :state %>
+                        <%= form.select :state, options_for_select([]),{include_blank: "Select"},class: "form-select",data: { action: "change->dropdown--selectdropdown#city" } %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <%= form.label :city %>
+                        <%= form.select :city, options_for_select([]),{include_blank: "Select"},class: "form-select" %>
+                    </div>
+                </div>
+            </div>
+
+        <% end %>
+
+    </div>
+</div>

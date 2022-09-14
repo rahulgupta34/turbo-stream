@@ -71,3 +71,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "city-state", "~> 0.1.0"
+gem 'requestjs-rails'
+
