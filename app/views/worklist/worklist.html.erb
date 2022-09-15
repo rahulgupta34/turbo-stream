@@ -1,0 +1,76 @@
+<div class="container mt-4">
+    <h1>Worklist Project For Stimulus Practice
+    </h1>
+    <%# worl list action  %>
+    <div class="row m-4">
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-lg-2">
+                    <button type="button" class="clearBtn">
+                        Clear The Worklist
+                    </button>
+                </div>
+
+                <div class="col-lg-2">
+                    <div>
+                        <input type="radio" name="worklist" value="add_work" />
+                        <label class="clearBtn">Add Work</label>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div>
+                        <input type="radio" name="worklist" value="change_card_title" />
+                        <label class="clearBtn">Change Card Title</label>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div>
+                        <input type="radio" name="worklist" value="delete_work" />
+                        <label class="clearBtn">Delete Work</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 text-capitalize">today's worklist
+            <%= Time.now.strftime("%d/%m/%Y") %>
+        </div>
+    </div>
+    <hr
+    size="5"/>
+
+    <%# text area  %>
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Your Text Here "/>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-primary">Add Work</button>
+        </div>
+    </div>
+
+    <%# wokr list cards %>
+
+    <div class="row mt-5">
+        <div class="col-lg-4 cardDesign">
+            <input type="radio" name="card_radio" value="home" />
+            <h6>Home</h6>
+        </div>
+
+        <div class="col-lg-4 cardDesign">
+            <input type="radio" name="card_radio" value="shopping" />
+            <h6>Shopping</h6>
+        </div>
+
+        <div class="col-lg-4 cardDesign">
+            <input type="radio" name="card_radio" value="office" />
+            <h6>Office</h6>
+        </div>
+
+    </div>
+
+</div>

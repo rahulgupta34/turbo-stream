@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+.clearBtn{
+    font-size: 11px;
+}
+
+body{
+    background-color: blanchedalmond;
+}
+
+hr{
+    color: brown;
+}
+
+.cardDesign{
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin-bottom: 50px;
+}
+
+.cardDesign input[type="radio"] {
+    float: right;
+    margin-top: 10px;
+    /* margin-right: 10px; */
+}
+
+.cardDesign h6{
+    margin-top: 20px;
+}
