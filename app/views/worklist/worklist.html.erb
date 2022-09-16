@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4" data-controller="worklist">
     <h1>Worklist Project For Stimulus Practice
     </h1>
     <%# worl list action  %>
@@ -13,21 +13,21 @@
 
                 <div class="col-lg-2">
                     <div>
-                        <input type="radio" name="worklist" value="add_work" />
+                        <input type="radio" name="worklist" value="add_work" data-action="click->worklist#changeCardTitle" data-worklist-target="cardTitle" />
                         <label class="clearBtn">Add Work</label>
                     </div>
                 </div>
 
                 <div class="col-lg-2">
                     <div>
-                        <input type="radio" name="worklist" value="change_card_title" />
+                        <input type="radio" name="worklist" value="change_card_title" data-action="click->worklist#changeCardTitle" data-worklist-target="cardTitle" />
                         <label class="clearBtn">Change Card Title</label>
                     </div>
                 </div>
 
                 <div class="col-lg-2">
                     <div>
-                        <input type="radio" name="worklist" value="delete_work" />
+                        <input type="radio" name="worklist" value="delete_work" data-action="click->worklist#changeCardTitle" data-worklist-target="cardTitle" />
                         <label class="clearBtn">Delete Work</label>
                     </div>
                 </div>
@@ -45,11 +45,11 @@
     <div class="row">
         <div class="col-lg-9">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter Your Text Here "/>
+                <input type="text" class="form-control" placeholder="Enter Your Text Here " data-worklist-target="textField"/>
             </div>
         </div>
         <div class="col-lg-2">
-            <button type="button" class="btn btn-primary">Add Work</button>
+            <button type="button" class="btn btn-primary" data-action="click->worklist#addWorkButton">Add Work</button>
         </div>
     </div>
 
@@ -57,18 +57,18 @@
 
     <div class="row mt-5">
         <div class="col-lg-4 cardDesign">
-            <input type="radio" name="card_radio" value="home" />
-            <h6>Home</h6>
+            <input type="radio" name="card_radio" value="home" data-action="click->worklist#cardHeadingChange" data-worklist-target="cardRadios" />
+            <h6 data-worklist-target="cardHomeHeading">Home</h6>
         </div>
 
         <div class="col-lg-4 cardDesign">
-            <input type="radio" name="card_radio" value="shopping" />
-            <h6>Shopping</h6>
+            <input type="radio" name="card_radio" value="shopping" data-action="click->worklist#cardHeadingChange" data-worklist-target="cardRadios" />
+            <h6 data-worklist-target="cardShoppingHeading">Shopping</h6>
         </div>
 
         <div class="col-lg-4 cardDesign">
-            <input type="radio" name="card_radio" value="office" />
-            <h6>Office</h6>
+            <input type="radio" name="card_radio" value="office" data-action="click->worklist#cardHeadingChange" data-worklist-target="cardRadios" />
+            <h6 data-worklist-target="cardOfficeHeading">Office</h6>
         </div>
 
     </div>
