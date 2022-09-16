@@ -25,6 +25,18 @@ export default class extends Controller {
       this.cardHeadingChange()
     }else{
       this.textAreaTarget.hidden = false
+      this.homeDeleteButtonTargets.forEach((item) =>{
+        item.style.display = "none"
+      })
+
+      this.shoppingDeleteButtonTargets.forEach((item) =>{
+        item.style.display = "none"
+      })
+
+      this.officeDeleteButtonTargets.forEach((item) =>{
+        item.style.display = "none"
+      })
+
     }
     
   }
