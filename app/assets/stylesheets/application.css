@@ -45,3 +45,8 @@ hr{
 .cardDesign h6{
     margin-top: 20px;
 }
+
+.deleteBtn{
+    font-size: 10px;
+    display: none;
+}

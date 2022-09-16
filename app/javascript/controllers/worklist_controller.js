@@ -2,7 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="worklist"
 export default class extends Controller {
-  static targets = ["AddWork","changeCardTitle","deleteWork","cardHomeHeading","cardShoppingHeading","cardOfficeHeading", "textField","cardRadios","cardTitle","cardHomeList","cardShoppingList","cardOfficeList","ulLists"]
+  
+  static targets = ["cardHomeHeading","cardShoppingHeading","cardOfficeHeading", "textField","cardRadios","cardTitle","cardHomeList","cardShoppingList","cardOfficeList","ulLists", "textArea","homeDeleteButton","shoppingDeleteButton","officeDeleteButton"]
 
   connect() {
     // console.log("Connected...");
@@ -20,6 +21,11 @@ export default class extends Controller {
       })
     }
 
+    if(event.target.value == "delete_work"){
+      this.cardHeadingChange()
+    }else{
+      this.textAreaTarget.hidden = false
+    }
     
   }
 
@@ -30,17 +36,17 @@ export default class extends Controller {
           if(item.checked){
             if(item.value == "home"){
               if(this.textFieldTarget.value != ""){
-                this.cardHomeListTarget.innerHTML = this.cardHomeListTarget.innerHTML + "<li data-worklist-target='ulLists'>"+ this.textFieldTarget.value +"</>"
+                this.cardHomeListTarget.innerHTML = this.cardHomeListTarget.innerHTML + "<li data-worklist-target='ulLists'><button data-worklist-target='homeDeleteButton' class='deleteBtn' data-action='click->worklist#deleteList'>X</button> "+ this.textFieldTarget.value +"</>"
               this.textFieldTarget.value = ""
               }
             }else if(item.value == "shopping"){
               if(this.textFieldTarget.value != ""){
-                this.cardShoppingListTarget.innerHTML = this.cardShoppingListTarget.innerHTML + "<li data-worklist-target='ulLists'>"+ this.textFieldTarget.value +"</>"
+                this.cardShoppingListTarget.innerHTML = this.cardShoppingListTarget.innerHTML + "<li data-worklist-target='ulLists'> <button class='deleteBtn' data-worklist-target='shoppingDeleteButton' data-action='click->worklist#deleteList'>X</button> "+ this.textFieldTarget.value +"</>"
               this.textFieldTarget.value = ""
               }
             }else{
               if(this.textFieldTarget.value  != ""){
-                this.cardOfficeListTarget.innerHTML = this.cardOfficeListTarget.innerHTML + "<li data-worklist-target='ulLists'>"+ this.textFieldTarget.value +"</>"
+                this.cardOfficeListTarget.innerHTML = this.cardOfficeListTarget.innerHTML + "<li data-worklist-target='ulLists'> <button class='deleteBtn' data-worklist-target='officeDeleteButton' data-action='click->worklist#deleteList'>X</button> "+ this.textFieldTarget.value +"</>"
               this.textFieldTarget.value = ""
               }
             }
@@ -62,7 +68,6 @@ export default class extends Controller {
             let radios = this.cardRadiosTargets
             radios.forEach((item) => {
               if(item.checked){
-                // console.log(item.value);
                 if(item.value == "home"){
                   this.textFieldTarget.value = this.cardHomeHeadingTarget.innerText
                 }else if(item.value == "shopping"){
@@ -72,6 +77,25 @@ export default class extends Controller {
                 }
               }
             })
+           }else if(item.value == "delete_work"){
+             this.textAreaTarget.hidden = true
+             this.cardRadiosTargets.forEach((item) => {
+               if(item.checked){
+                if(item.value == "home"){
+                  this.homeDeleteButtonTargets.forEach((item) => {
+                    item.style.display ="inline-block"
+                  })
+                }else if(item.value == "shopping"){
+                  this.shoppingDeleteButtonTargets.forEach((item) =>{
+                  item.style.display ="inline-block"
+                  })
+                }else{
+                  this.officeDeleteButtonTargets.forEach((item) => {
+                    item.style.display ="inline-block"
+                  })
+                }
+               }
+             })
            }
       }
     }) 
@@ -102,6 +126,10 @@ export default class extends Controller {
     this.ulListsTargets.forEach((item) => {
       item.remove()
     })
+  }
+
+  deleteList(event){
+    event.target.closest("li").remove()
   }
 
 }
