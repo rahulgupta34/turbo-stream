@@ -6,7 +6,7 @@
         <div class="col-lg-9">
             <div class="row">
                 <div class="col-lg-2">
-                    <button type="button" class="clearBtn">
+                    <button type="button" class="clearBtn" data-action="click->worklist#clearWorkList">
                         Clear The Worklist
                     </button>
                 </div>
@@ -57,19 +57,19 @@
 
     <div class="row mt-5">
         <div class="col-lg-4 cardDesign">
-            <input type="radio" name="card_radio" value="home" data-action="click->worklist#cardHeadingChange click->worklist#addWork" data-worklist-target="cardRadios"/>
+            <input type="radio" name="card_radio" value="home" data-action="click->worklist#cardHeadingChange click->worklist#addWorkUsingSubmit" data-worklist-target="cardRadios"/>
             <h6 data-worklist-target="cardHomeHeading">Home</h6>
             <ul data-worklist-target="cardHomeList"></ul>
         </div>
 
         <div class="col-lg-4 cardDesign">
-            <input type="radio" name="card_radio" value="shopping" data-action="click->worklist#cardHeadingChange click->worklist#addWork" data-worklist-target="cardRadios"/>
+            <input type="radio" name="card_radio" value="shopping" data-action="click->worklist#cardHeadingChange click->worklist#addWorkUsingSubmit" data-worklist-target="cardRadios"/>
             <h6 data-worklist-target="cardShoppingHeading">Shopping</h6>
             <ul data-worklist-target="cardShoppingList"></ul>
         </div>
 
         <div class="col-lg-4 cardDesign">
-            <input type="radio" name="card_radio" value="office" data-action="click->worklist#cardHeadingChange click->worklist#addWork" data-worklist-target="cardRadios"/>
+            <input type="radio" name="card_radio" value="office" data-action="click->worklist#cardHeadingChange click->worklist#addWorkUsingSubmit" data-worklist-target="cardRadios"/>
             <h6 data-worklist-target="cardOfficeHeading">Office</h6>
             <ul data-worklist-target="cardOfficeList"></ul>
         </div>

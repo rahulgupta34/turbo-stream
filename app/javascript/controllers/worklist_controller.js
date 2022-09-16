@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="worklist"
 export default class extends Controller {
-  static targets = ["AddWork","changeCardTitle","deleteWork","cardHomeHeading","cardShoppingHeading","cardOfficeHeading", "textField","cardRadios","cardTitle","cardHomeList","cardShoppingList","cardOfficeList"]
+  static targets = ["AddWork","changeCardTitle","deleteWork","cardHomeHeading","cardShoppingHeading","cardOfficeHeading", "textField","cardRadios","cardTitle","cardHomeList","cardShoppingList","cardOfficeList","ulLists"]
 
   connect() {
     // console.log("Connected...");
@@ -20,9 +20,6 @@ export default class extends Controller {
       })
     }
 
-    if(event.target.value == "add_work"){
-      this.addWorkUsingSubmit()
-    }  
     
   }
 
@@ -33,17 +30,17 @@ export default class extends Controller {
           if(item.checked){
             if(item.value == "home"){
               if(this.textFieldTarget.value != ""){
-                this.cardHomeListTarget.innerHTML = this.cardHomeListTarget.innerHTML + "<li>"+ this.textFieldTarget.value +"</>"
+                this.cardHomeListTarget.innerHTML = this.cardHomeListTarget.innerHTML + "<li data-worklist-target='ulLists'>"+ this.textFieldTarget.value +"</>"
               this.textFieldTarget.value = ""
               }
             }else if(item.value == "shopping"){
               if(this.textFieldTarget.value != ""){
-                this.cardShoppingListTarget.innerHTML = this.cardShoppingListTarget.innerHTML + "<li>"+ this.textFieldTarget.value +"</>"
+                this.cardShoppingListTarget.innerHTML = this.cardShoppingListTarget.innerHTML + "<li data-worklist-target='ulLists'>"+ this.textFieldTarget.value +"</>"
               this.textFieldTarget.value = ""
               }
             }else{
               if(this.textFieldTarget.value  != ""){
-                this.cardOfficeListTarget.innerHTML = this.cardOfficeListTarget.innerHTML + "<li>"+ this.textFieldTarget.value +"</>"
+                this.cardOfficeListTarget.innerHTML = this.cardOfficeListTarget.innerHTML + "<li data-worklist-target='ulLists'>"+ this.textFieldTarget.value +"</>"
               this.textFieldTarget.value = ""
               }
             }
@@ -98,6 +95,12 @@ export default class extends Controller {
           }
         })
       }
+    })
+  }
+
+  clearWorkList(){
+    this.ulListsTargets.forEach((item) => {
+      item.remove()
     })
   }
 
