@@ -97,14 +97,17 @@ export default class extends Controller {
                   this.homeDeleteButtonTargets.forEach((item) => {
                     item.style.display ="inline-block"
                   })
+                  this.homeDeleteButtonHide()
                 }else if(item.value == "shopping"){
                   this.shoppingDeleteButtonTargets.forEach((item) =>{
                   item.style.display ="inline-block"
                   })
+                  this.shoppingDeleteButtonHide()
                 }else{
                   this.officeDeleteButtonTargets.forEach((item) => {
                     item.style.display ="inline-block"
                   })
+                  this.officeDeleteButtonHide()
                 }
                }
              })
@@ -142,6 +145,36 @@ export default class extends Controller {
 
   deleteList(event){
     event.target.closest("li").remove()
+  }
+
+  homeDeleteButtonHide(){
+    this.shoppingDeleteButtonTargets.forEach((item) =>{
+      item.style.display ="none"
+    })
+
+    this.officeDeleteButtonTargets.forEach((item) => {
+      item.style.display ="none"
+    })
+  }
+
+  shoppingDeleteButtonHide(){
+    this.homeDeleteButtonTargets.forEach((item) => {
+      item.style.display ="none"
+    })
+
+    this.officeDeleteButtonTargets.forEach((item) => {
+      item.style.display ="none"
+    })
+  }
+
+  officeDeleteButtonHide(){
+    this.homeDeleteButtonTargets.forEach((item) => {
+      item.style.display ="none"
+    })
+
+    this.shoppingDeleteButtonTargets.forEach((item) =>{
+      item.style.display ="none"
+    })
   }
 
 }
