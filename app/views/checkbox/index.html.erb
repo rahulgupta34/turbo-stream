@@ -1,0 +1,20 @@
+<h1>Checkbox Handle Using Stimulus</h1>
+<div data-controller="checkbox" data-checkbox-url-value="<%= checkbox_destroy_path %>">
+    <div>
+        <input type="checkbox" name="chk_all" data-checkbox-target="selectAll" data-action="click->checkbox#selectAll">
+        <label>SelectAll</label>
+    </div>
+    <%= form_with url:"/" do |form| %>
+        <div id="checkboxUpdate">
+            <% @categories.each do |item| %>
+                <%= label_tag(item.name) %>
+                <%= check_box_tag("#{item.name}_#{item.id}", item.id,{},data: {  checkbox_target: "categoryCheckbox" }) %>
+                <br/>
+            <% end %>
+        </div>
+
+        <div class="mt-3">
+            <%= form.submit "Submit",data: { action: "click->checkbox#checkboxHandle" } %>
+        </div>
+    <% end %>
+</div>
