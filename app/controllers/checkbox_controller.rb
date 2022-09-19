@@ -4,7 +4,7 @@ class CheckboxController < ApplicationController
   end
 
   def destroy
-    @category = Category.where(id: params[:chk_values])
+    @category = Category.checkbox_delete(params[:chk_values])
     @category.destroy_all
     @categories = Category.all
     respond_to do |format|      
