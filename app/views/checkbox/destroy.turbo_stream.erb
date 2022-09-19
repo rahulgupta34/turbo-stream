@@ -1,0 +1,7 @@
+<%= turbo_stream.update "checkboxUpdate" do %>
+    <% @categories.each do |item| %>
+        <%= label_tag(item.name) %>
+        <%= check_box_tag("#{item.name}_#{item.id}", item.id,checked = false,data: {  checkbox_target: "categoryCheckbox" }) %>
+        <br/>
+    <% end %>
+<% end %>
