@@ -1,0 +1,79 @@
+<div class="container mt-4" data-controller="worklist">
+    <h1>Worklist Project For Stimulus Practice
+    </h1>
+    <%# worl list action  %>
+    <div class="row m-4">
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-lg-2">
+                    <button type="button" class="clearBtn" data-action="click->worklist#clearWorkList">
+                        Clear The Worklist
+                    </button>
+                </div>
+
+                <div class="col-lg-2">
+                    <div>
+                        <input type="radio" name="worklist" value="add_work" data-action="click->worklist#changeCardTitle" data-worklist-target="cardTitle"/>
+                        <label class="clearBtn">Add Work</label>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div>
+                        <input type="radio" name="worklist" value="change_card_title" data-action="click->worklist#changeCardTitle" data-worklist-target="cardTitle"/>
+                        <label class="clearBtn">Change Card Title</label>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div>
+                        <input type="radio" name="worklist" value="delete_work" data-action="click->worklist#changeCardTitle" data-worklist-target="cardTitle"/>
+                        <label class="clearBtn">Delete Work</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 text-capitalize">today's worklist
+            <%= Time.now.strftime("%d/%m/%Y") %>
+        </div>
+    </div>
+    <hr
+    size="5"/>
+
+    <%# text area  %>
+    <div class="row" data-worklist-target="textArea">
+        <div class="col-lg-9">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Your Text Here " data-worklist-target="textField"/>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-primary" data-action="click->worklist#addWorkButton click->worklist#addWorkUsingSubmit">Add Work</button>
+        </div>
+    </div>
+
+    <%# wokr list cards %>
+
+    <div class="row mt-5">
+        <div class="col-lg-4 cardDesign">
+            <input type="radio" name="card_radio" value="home" data-action="click->worklist#cardHeadingChange click->worklist#addWorkUsingSubmit" data-worklist-target="cardRadios"/>
+            <h6 data-worklist-target="cardHomeHeading">Home</h6>
+            <ul data-worklist-target="cardHomeList"></ul>
+        </div>
+
+        <div class="col-lg-4 cardDesign">
+            <input type="radio" name="card_radio" value="shopping" data-action="click->worklist#cardHeadingChange click->worklist#addWorkUsingSubmit" data-worklist-target="cardRadios"/>
+            <h6 data-worklist-target="cardShoppingHeading">Shopping</h6>
+            <ul data-worklist-target="cardShoppingList"></ul>
+        </div>
+
+        <div class="col-lg-4 cardDesign">
+            <input type="radio" name="card_radio" value="office" data-action="click->worklist#cardHeadingChange click->worklist#addWorkUsingSubmit" data-worklist-target="cardRadios"/>
+            <h6 data-worklist-target="cardOfficeHeading">Office</h6>
+            <ul data-worklist-target="cardOfficeList"></ul>
+        </div>
+
+    </div>
+
+</div>
