@@ -1,0 +1,5 @@
+<%= turbo_stream.update "errors" do %>
+    <% if @rahul.errors.any? %>
+            <%= @rahul.errors.full_messages[0] %>
+    <% end %>
+<% end %>
