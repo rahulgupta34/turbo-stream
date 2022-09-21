@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+<%= Time.now %>
+<div class="search">
+    <%= render "users/search_form" %>
+</div>
+<div id="search_output">
+    
+</div>
+<div id="search_res"></div>
+
+<h1>Users
+    <span id="message_count">
+        <%= User.count %>
+    </span>
+</h1>
+<div id="new_user">
+    <%= render partial: "users/form", locals: {user: User.new}  %>
+</div>
+
+<% @users.each do |user| %>
+    <div id="users">
+        <%= render user %>
+    <% end %>
+</div>
